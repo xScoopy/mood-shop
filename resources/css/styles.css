@@ -21,3 +21,8 @@ body{
     padding:0.5em;
     text-decoration:none;
   }
+nav{
+    background-color: lightcoral;
+    font-size: 18px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
