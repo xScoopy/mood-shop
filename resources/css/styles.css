@@ -26,3 +26,25 @@ nav{
     font-size: 18px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
+.items {
+  display: grid;
+  grid-template-columns: repeat(4, 120px);
+  grid-column-gap: 200px;
+  margin-left: 100px;
+  margin-top: 50px;
+}
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: solid 1px;
+  width: 300px;
+  margin-top: 30px;
+}
+button {
+  background-color: lightblue;
+  padding: 0.25em;
+  align-self: center;
+  margin-top: auto;
+  font-family: cursive;
+}
