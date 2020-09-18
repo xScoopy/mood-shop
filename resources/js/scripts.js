@@ -33,14 +33,47 @@ for (let i=0; i<data.length; ++i) {
 // declare cart array
 const cart = [ ];
 
-
-
 // define function addItem
 function addItem(name, price) {
-    const item = { name: name, price: price, qty: 1 };
+    for (let i = 0; i < cart.length; i ++) {
+        if (cart[i].name === name) {
+            cart[i].qty += 1;
+            return
+        }
+    }
+    const item = { name, price, qty: 1 };
     cart.push(item);
 }
 //define function showItems
 function showItems() {
-    console.log(`You have ${cart.length} items in your cart`)
+    const qty = getQty();
+    const total = getTotal();
+    console.log(`You have ${qty} items in your cart`)
+    for (let i = 0; i < cart.length ; i++ ) {
+        console.log(`${cart[i].name} $${cart[i].price} x ${cart[i].qty}`)
+    }
+    console.log(`Total in cart: $${total}`)
 }
+function getQty(){
+    let qty = 0
+    for (let i = 0; i < cart.length; i ++){
+        qty += cart[i].qty; 
+    }
+    return qty;
+}
+function getTotal(){
+    let total = 0;
+    for (let i =0; i < cart.length; i ++) {
+        total += cart[i].price * cart[i].qty;
+    }
+    return total.toFixed(2);
+}
+
+// add items to cart and display them
+addItem('Apple', 0.99);
+addItem('Orange', 1.29);
+addItem('Opinion', 0.02);
+addItem('Orange', 1.29);
+addItem('Apple', 0.99);
+addItem('Apple', 0.99);
+showItems();
