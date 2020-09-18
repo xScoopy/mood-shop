@@ -54,6 +54,7 @@ function showItems() {
     }
     console.log(`Total in cart: $${total}`)
 }
+//get qty function
 function getQty(){
     let qty = 0
     for (let i = 0; i < cart.length; i ++){
@@ -61,12 +62,28 @@ function getQty(){
     }
     return qty;
 }
+//get total function
 function getTotal(){
     let total = 0;
     for (let i =0; i < cart.length; i ++) {
         total += cart[i].price * cart[i].qty;
     }
     return total.toFixed(2);
+}
+//remove item function
+function removeItem(name, qty = 0){
+    for (let i = 0; i < cart.length; i ++) {
+        if (cart[i].name === name) {
+            if (qty > 0){
+                cart[i].qty -= qty
+            }
+            if (cart[i].qty < 1 || qty === 0){
+                cart.splice(i, 1);
+            }
+           
+            return
+        }
+    }
 }
 
 // add items to cart and display them
@@ -75,5 +92,9 @@ addItem('Orange', 1.29);
 addItem('Opinion', 0.02);
 addItem('Orange', 1.29);
 addItem('Apple', 0.99);
+addItem('Frisbee', 9.92);
 addItem('Apple', 0.99);
+showItems();
+removeItem('Frisbee');
+removeItem('Apple', 1);
 showItems();
